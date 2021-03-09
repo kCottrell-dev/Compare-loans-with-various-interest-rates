@@ -1,6 +1,8 @@
-# Project Title
+# Compare loans with various interest rates
 
-One Paragraph of project description goes here
+The Programming exercise is asking me to rewrite programming exercise 5.21 and create a GUI that has an example picture
+to show how exactly I need to program it to look like. The program needs to allow you need enter the loan amount and loan period
+in number of years from a text field, and it should display monthly and total payments for each interest rate starting from 5 percent to 8 percent, with increments of one-eighth in the text area. Basically, the assignment wants me to program a GUI that calculates loans with interest rates from exercise 5.21
 
 ## Example Output
 
@@ -12,6 +14,10 @@ This image will display as your example output. Name the image README.jpg in you
 
 This section should restate the assignment and explain how you analyzed the requirements in order 
 to develop a solution.
+Well, I analyzed the requirements by simply reading the text in the pearson and looking at the images provided in the pearson
+to get a good look on how the program should be layed out and what it needs to be doing. All the information needed to recognize a solution
+is available in the pearson text. Which is basically create a GUI out programming exercise 5.21 and let the user
+calculate loan interest rates.
 
 ### Design
 
@@ -41,7 +47,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Notes
 
-Explain any issues or testing instructions.
+No issues or notes.
 
 ## Do not change content below this line
 ## Adapted from a README Built With
