@@ -6,8 +6,6 @@ in number of years from a text field, and it should display monthly and total pa
 
 ## Example Output
 
-This image will display as your example output. Name the image README.jpg in your project folder.
-
 ![image](https://user-images.githubusercontent.com/73491964/110555036-81f1f400-8101-11eb-8bc4-0604b0ccadd7.png)
 
 ## Analysis Steps
@@ -21,10 +19,34 @@ calculate loan interest rates.
 
 ### Design
 
-How did you approach your program design? Did you use multiple classes to define various objects?
+Yes I used multiple classes to approach my design I used various JavaFX classes in order to build my GUI, and I just borrowed
+the loan interest code from the exercise 5.21 so that it would display the values in the GUI, by registering it to the program
+like so.
 
 ```
-Give examples
+btShowTable.setOnAction(e -> {
+			print();
+		});
+    
+    private void print() {
+		// Create a output string
+		String output = "";
+		double monthlyInterestRate; // Monthly interest rate
+		double monthlyPayment;	// Monthly payment
+		
+		// Header
+		output += "Interest Rate       Monthly Payment          Total Payment\n";
+		
+		// Calculate and add table with interest rates to output
+		for (double i = 5.0; i <= 8; i += 0.125) {
+			monthlyInterestRate = i / 1200;
+			monthlyPayment = Double.parseDouble(tfLoanAmount.getText()) * 
+				monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate,
+				Double.parseDouble(tfNumberOfYears.getText()) * 12));
+
+			output += String.format("%-24.3f%-34.2f%-8.2f\n", i, 
+				monthlyPayment, (monthlyPayment * 12) * 
+				Double.parseDouble(tfNumberOfYears.getText()));
 ```
 
 ### Testing
@@ -33,14 +55,49 @@ A step by step series of examples that you developed to properly test the progra
 
 Say what the step will be
 
+Step 1: Create the required textfields.
+
+```tfLoanAmount = new TextField();
+tfNumberOfYears = new TextField();
+textArea = new TextArea();
 ```
-Give the example
-```
+
+Step 2: Create hBox
 
 And repeat
 
 ```
-until finished
+// Create a hbox
+		HBox paneForControls = new HBox(10);
+		paneForControls.setAlignment(Pos.CENTER);
+```
+
+Step 3: Create Pane
+```
+// Create a pane
+		BorderPane pane = new BorderPane();
+```
+
+Step 4: Create output code from exercise 5.21
+
+```
+private void print() {
+		// Create a output string
+		String output = "";
+		double monthlyInterestRate; // Monthly interest rate
+		double monthlyPayment;	// Monthly payment
+```
+```
+btShowTable.setOnAction(e -> {
+			print();
+		});
+```
+Step 5: Create Scene and place it in stage
+```
+Scene scene = new Scene(pane);
+		primaryStage.setTitle("LoanInterest"); // Set the stage title
+		primaryStage.setScene(scene); // Place the scene in the stage
+		primaryStage.show(); // Display the stage
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
