@@ -24,15 +24,13 @@ the loan interest code from the exercise 5.21 so that it would display the value
 like so.
 
 ```
-btShowTable.setOnAction(e -> {
-			print();
-		});
-    
+EventHandler<ActionEvent> handler = event -> print();
+
     private void print() {
 		// Create a output string
 		String output = "";
-		double monthlyInterestRate; // Monthly interest rate
-		double monthlyPayment;	// Monthly payment
+		double monthlyInterestRate; 
+		double monthlyPayment;	
 		
 		// Header
 		output += "Interest Rate       Monthly Payment          Total Payment\n";
@@ -57,8 +55,8 @@ Say what the step will be
 
 Step 1: Create the required textfields.
 
-```tfLoanAmount = new TextField();
-tfNumberOfYears = new TextField();
+```LoanAmount = new TextField();
+NumberOfYears = new TextField();
 textArea = new TextArea();
 ```
 
@@ -68,14 +66,17 @@ And repeat
 
 ```
 // Create a hbox
-		HBox paneForControls = new HBox(10);
-		paneForControls.setAlignment(Pos.CENTER);
+		   HBox topPane = new HBox();
+        topPane.setSpacing(10);
+        topPane.setPadding(new Insets(5));
+        Label lblLoanAmount = new Label("Loan Amount:", LoanAmount);
 ```
 
-Step 3: Create Pane
+Step 3: Create Handler
 ```
-// Create a pane
-		BorderPane pane = new BorderPane();
+	EventHandler<ActionEvent> handler = event -> print();
+        NumberOfYears.setOnAction(handler);
+        LoanAmount.setOnAction(handler);
 ```
 
 Step 4: Create output code from exercise 5.21
@@ -84,15 +85,19 @@ Step 4: Create output code from exercise 5.21
 private void print() {
 		// Create a output string
 		String output = "";
-		double monthlyInterestRate; // Monthly interest rate
-		double monthlyPayment;	// Monthly payment
+		double monthlyInterestRate; 
+		double monthlyPayment;	
 ```
+
+Step 5: Get Children with button
 ```
-btShowTable.setOnAction(e -> {
-			print();
-		});
+Button btShowTable = new Button("Show Table");
+        btShowTable.setOnAction(handler);
+        topPane.getChildren().addAll(lblLoanAmount, lblNumOfYears, btShowTable);
 ```
-Step 5: Create Scene and place it in stage
+
+
+Step 6: Create Scene and place it in stage
 ```
 Scene scene = new Scene(pane);
 		primaryStage.setTitle("LoanInterest"); // Set the stage title
@@ -100,7 +105,8 @@ Scene scene = new Scene(pane);
 		primaryStage.show(); // Display the stage
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+You can use this program to extract interest data from when you take a loan and how it increases
+overtime. like if you put 5000 for your loan amount and 5 years it would show you how long the total payment would increase.
 
 ## Notes
 
