@@ -8,7 +8,7 @@ in number of years from a text field, and it should display monthly and total pa
 
 This image will display as your example output. Name the image README.jpg in your project folder.
 
-![Sample Output](README.jpg)
+![image](https://user-images.githubusercontent.com/73491964/110555036-81f1f400-8101-11eb-8bc4-0604b0ccadd7.png)
 
 ## Analysis Steps
 
